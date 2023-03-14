@@ -10,6 +10,7 @@ screen.title("Turtle Crossing")
 screen.tracer(0)
 
 player = Player()
+scoreboard = Scoreboard()
 
 screen.listen()
 screen.onkey(player.move, "Up")
@@ -19,3 +20,6 @@ while game_is_on:
     time.sleep(0.1)
     screen.update()
 
+    if player.ycor() > player.finish_line:
+        player.reset_position()
+        scoreboard.add_point()
